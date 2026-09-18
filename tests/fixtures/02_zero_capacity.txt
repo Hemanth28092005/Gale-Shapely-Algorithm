@@ -1,0 +1,12 @@
+# Edge Case: Hospital with 0 capacity from the start
+3 residents, 3 hospitals
+
+# Resident Preferences
+R0: H0 H1
+R1: H0 H1 H2
+R2: H1 H2
+
+# Hospital Capacities & Preferences
+H0: cap=0, prefs=R0 R1 R2
+H1: cap=1, prefs=R0 R1 R2
+H2: cap=1, prefs=R1 R2 R0

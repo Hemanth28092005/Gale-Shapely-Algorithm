@@ -1,0 +1,11 @@
+# Edge Case: Resident who exhausts whole preference list unmatched
+3 residents, 2 hospitals
+
+# Resident Preferences
+R0: H0
+R1: H1
+R2: H0
+
+# Hospital Capacities & Preferences
+H0: cap=1, prefs=R0 R2
+H1: cap=1, prefs=R1

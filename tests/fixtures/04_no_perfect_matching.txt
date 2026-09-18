@@ -1,0 +1,14 @@
+# Edge Case: Instance with no perfect matching (structural deficit & incomplete lists)
+4 residents, 3 hospitals
+
+# Resident Preferences
+# Note: No resident considers H2 acceptable
+R0: H0 H1
+R1: H0
+R2: H1
+R3: H0 H1
+
+# Hospital Capacities & Preferences
+H0: cap=1, prefs=R0 R1 R3
+H1: cap=1, prefs=R2 R0 R3
+H2: cap=2, prefs=R0 R1 R2 R3

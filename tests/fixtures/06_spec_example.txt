@@ -1,0 +1,14 @@
+# Specification Example Instance
+5 residents, 3 hospitals
+
+# Resident Preferences
+R0: H1 H0 H2
+R1: H0 H2
+R2: H0 H1 H2
+R3: H1 H2
+R4: H0 H1
+
+# Hospital Capacities & Preferences
+H0: cap=2, prefs=R1 R0 R2 R3 R4
+H1: cap=2, prefs=R0 R2 R3 R4 R1
+H2: cap=1, prefs=R3 R1 R0 R2 R4

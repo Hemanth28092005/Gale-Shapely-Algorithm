@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gale-Shapley Algorithm | Interactive Visualizer</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="app-header">
+    <div class="header-left">
+      <div class="logo-icon">&#x2695;</div>
+      <div>
+        <h1>Gale-Shapley Stable Matching Visualizer</h1>
+        <p class="subtitle">Hospital / Residents Problem (Generalized with Capacities & Incomplete Lists)</p>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="status-badge stable" id="stability-badge">
+        <span class="dot"></span> STABLE MATCHING
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Top Control Toolbar -->
+    <section class="toolbar-card">
+      <div class="toolbar-group">
+        <label for="instance-select">Select Instance:</label>
+        <select id="instance-select">
+          <option value="spec">Spec Example (5 Residents, 3 Hospitals)</option>
+          <option value="handbuilt">Hand-Built Reference (3 Residents, 2 Hospitals)</option>
+          <option value="cascading">Cascading Bumps (5 Residents, 2 Hospitals)</option>
+        </select>
+        <label class="btn btn-secondary file-upload-btn">
+          Upload JSON
+          <input type="file" id="json-file-input" accept=".json">
+        </label>
+      </div>
+
+      <div class="playback-controls">
+        <button id="btn-reset" class="btn btn-icon" title="Reset to Start">&#x23EE;</button>
+        <button id="btn-prev" class="btn btn-icon" title="Step Back">&#x23EA;</button>
+        <button id="btn-play" class="btn btn-primary" title="Play / Pause">&#x25B6; Play</button>
+        <button id="btn-next" class="btn btn-icon" title="Step Forward">&#x23E9;</button>
+      </div>
+
+      <div class="speed-controls">
+        <label for="speed-slider">Speed: <span id="speed-val">1.0x</span></label>
+        <input type="range" id="speed-slider" min="0.2" max="3" step="0.2" value="1">
+      </div>
+    </section>
+
+    <!-- Metrics Bar -->
+    <section class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-label">Current Step</div>
+        <div class="metric-value" id="metric-step">0 / 0</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Total Proposals</div>
+        <div class="metric-value" id="metric-proposals">0</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Bumping Events</div>
+        <div class="metric-value bump-color" id="metric-bumps">0</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Rejections</div>
+        <div class="metric-value reject-color" id="metric-rejections">0</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Matched Residents</div>
+        <div class="metric-value match-color" id="metric-matched">0 / 0</div>
+      </div>
+    </section>
+
+    <!-- Visual Match Arena -->
+    <div class="arena-grid">
+      <!-- Residents Column -->
+      <section class="panel-column">
+        <div class="panel-header">
+          <h2>Residents (Proposers)</h2>
+          <span class="badge" id="resident-count-badge">0 Residents</span>
+        </div>
+        <div class="entity-list" id="residents-container">
+          <!-- Populated dynamically -->
+        </div>
+      </section>
+
+      <!-- Event Stream & Live Action -->
+      <section class="panel-column middle-column">
+        <div class="panel-header">
+          <h2>Step Action & Event Trace</h2>
+          <span class="live-pill">LIVE</span>
+        </div>
+        <div class="current-action-box" id="current-action-display">
+          <div class="action-placeholder">Click <strong>Play</strong> or <strong>Step</strong> to begin matching.</div>
+        </div>
+        <div class="log-container" id="log-feed">
+          <!-- Live events logged here -->
+        </div>
+      </section>
+
+      <!-- Hospitals Column -->
+      <section class="panel-column">
+        <div class="panel-header">
+          <h2>Hospitals (Receivers)</h2>
+          <span class="badge" id="hospital-count-badge">0 Hospitals</span>
+        </div>
+        <div class="entity-list" id="hospitals-container">
+          <!-- Populated dynamically -->
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="app-footer">
+    <p>Hospital/Residents Stable Matching Engine &mdash; Based on Gale &amp; Shapley (1962) &amp; Gusfield &amp; Irving (1989)</p>
+  </footer>
+
+  <script src="visualizer.js"></script>
+</body>
+</html>

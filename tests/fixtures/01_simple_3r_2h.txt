@@ -1,0 +1,11 @@
+# Reference 3-Resident / 2-Hospital Instance
+3 residents, 2 hospitals
+
+# Resident Preferences
+R0: H0 H1
+R1: H0 H1
+R2: H1 H0
+
+# Hospital Capacities & Preferences
+H0: cap=1, prefs=R0 R1 R2
+H1: cap=1, prefs=R1 R0 R2

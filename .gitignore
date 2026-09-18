@@ -1,0 +1,16 @@
+# Build binaries and object files
+*.exe
+*.o
+*.obj
+*.out
+
+# Temporary traces and logs
+trace.json
+
+# System and editor files
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.vscode/
+.idea/
